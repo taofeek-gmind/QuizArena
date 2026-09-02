@@ -1,0 +1,100 @@
+.auth-shell {
+min-height: 100dvh;
+position: relative;
+overflow: hidden;
+display: flex;
+justify-content: center;
+padding: 0 20px;
+}
+
+.arena-rings {
+position: absolute;
+top: -120px;
+right: -140px;
+width: 420px;
+height: 420px;
+pointer-events: none;
+}
+
+.arena-rings .ring {
+fill: none;
+stroke-width: 1;
+}
+
+.ring-1 {
+stroke: var(--accent-violet);
+opacity: 0.18;
+}
+
+.ring-2 {
+stroke: var(--accent-gold);
+opacity: 0.14;
+}
+
+.ring-3 {
+stroke: var(--accent-violet);
+opacity: 0.22;
+}
+
+.auth-shell-inner {
+position: relative;
+width: 100%;
+max-width: 400px;
+padding: 56px 0 40px;
+display: flex;
+flex-direction: column;
+gap: 28px;
+}
+
+.auth-header {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.auth-eyebrow {
+font-family: var(--font-display);
+font-size: 15px;
+font-weight: 600;
+color: var(--accent-gold);
+margin: 0;
+}
+
+.auth-title {
+font-size: 30px;
+font-weight: 700;
+color: var(--text);
+max-width: 20ch;
+}
+
+.auth-subtitle {
+color: var(--text-muted);
+font-size: 15px;
+max-width: 34ch;
+}
+
+.auth-panel {
+background: var(--surface);
+border: 1px solid var(--line);
+border-radius: 10px;
+padding: 24px 20px;
+}
+
+.auth-footer {
+text-align: center;
+color: var(--text-muted);
+font-size: 14px;
+}
+
+.auth-footer a {
+color: var(--text);
+font-weight: 600;
+text-decoration: none;
+border-bottom: 1px solid var(--accent-gold);
+}
+
+@media (min-width: 480px) {
+.auth-panel {
+padding: 28px 28px;
+}
+}
