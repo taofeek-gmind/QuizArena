@@ -1,0 +1,72 @@
+:root {
+  --bg: #100e29;
+  --surface: #1a1740;
+  --surface-raised: #211c4c;
+  --line: #332d5e;
+  --text: #f5f3ff;
+  --text-muted: #9c93c4;
+  --accent-gold: #ffc53d;
+  --accent-gold-dim: #7a6420;
+  --accent-violet: #8b7cfa;
+  --danger: #ff7a7a;
+  --success: #4ade80;
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent-gold);
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+button {
+  font-size: 16px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
