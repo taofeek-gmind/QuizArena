@@ -1,39 +1,39 @@
 import './auth-shell.css'
 
-// A quiet signature element: three concentric rings, evoking a stadium
-// viewed from above / a target being hit. Used once, low-opacity, behind
-// the headline — not repeated elsewhere as decoration.
-function ArenaRings() {
-return (
-<svg  
-className="arena-rings"  
-viewBox="0 0 400 400"  
-aria-hidden="true"  
-focusable="false"  
->
-<circle cx="200" cy="200" r="190" className="ring ring-1" />
-<circle cx="200" cy="200" r="140" className="ring ring-2" />
-<circle cx="200" cy="200" r="90" className="ring ring-3" />
-</svg>
-)
+export default function AuthShell({
+  eyebrow,
+  title,
+  subtitle,
+  footer,
+  children,
+}) {
+  return (
+    <main className="auth-shell">
+      <svg
+        className="arena-rings"
+        viewBox="0 0 420 420"
+        aria-hidden="true"
+      >
+        <circle className="ring ring-1" cx="210" cy="210" r="150" />
+        <circle className="ring ring-2" cx="210" cy="210" r="115" />
+        <circle className="ring ring-3" cx="210" cy="210" r="80" />
+      </svg>
+
+      <div className="auth-shell-inner">
+        <header className="auth-header">
+          <p className="auth-eyebrow">{eyebrow}</p>
+          <h1 className="auth-title">{title}</h1>
+          <p className="auth-subtitle">{subtitle}</p>
+        </header>
+
+        <section className="auth-panel">
+          {children}
+        </section>
+
+        {footer ? <footer className="auth-footer">{footer}</footer> : null}
+      </div>
+    </main>
+  )
 }
-
-export default function AuthShell({ eyebrow, title, subtitle, children, footer }) {
-return (
-<div className="auth-shell">
-<ArenaRings />
-<div className="auth-shell-inner">
-<div className="auth-header">
-{eyebrow ? <p className="auth-eyebrow">{eyebrow}</p> : null}
-<h1 className="auth-title">{title}</h1>
-{subtitle ? <p className="auth-subtitle">{subtitle}</p> : null}
-</div>
-
-<div className="auth-panel">{children}</div>  
-
-    {footer ? <div className="auth-footer">{footer}</div> : null}  
-  </div>  
-</div>
-
 )
 }
