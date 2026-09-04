@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const const supabasePublishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 
 if (!supabaseUrl || !supabaseAnonKey) {
 // Fail loudly in dev rather than silently hitting a broken client.
@@ -16,7 +16,7 @@ console.error(
 // public "anon" key only. Row Level Security policies on your Supabase
 // tables are what actually protect user data — the anon key alone grants
 // no special access. Never import or reference a service-role key here.
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+export const supabase = createClient(supabaseUrl, supabasePublishableKey, {
 auth: {
 persistSession: true,
 autoRefreshToken: true,
