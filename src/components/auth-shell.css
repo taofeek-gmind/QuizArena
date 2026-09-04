@@ -1,37 +1,99 @@
-import './auth-shell.css'
+.auth-shell {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+  overflow: hidden;
+}
 
-export default function AuthShell({
-  eyebrow,
-  title,
-  subtitle,
-  footer,
-  children,
-}) {
-  return (
-    <main className="auth-shell">
-      <svg
-        className="arena-rings"
-        viewBox="0 0 420 420"
-        aria-hidden="true"
-      >
-        <circle className="ring ring-1" cx="210" cy="210" r="150" />
-        <circle className="ring ring-2" cx="210" cy="210" r="115" />
-        <circle className="ring ring-3" cx="210" cy="210" r="80" />
-      </svg>
+.arena-rings {
+  position: fixed;
+  width: min(420px, 90vw);
+  height: min(420px, 90vw);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.18;
+  pointer-events: none;
+}
 
-      <div className="auth-shell-inner">
-        <header className="auth-header">
-          <p className="auth-eyebrow">{eyebrow}</p>
-          <h1 className="auth-title">{title}</h1>
-          <p className="auth-subtitle">{subtitle}</p>
-        </header>
+.ring {
+  fill: none;
+  stroke: var(--accent-violet);
+  stroke-width: 1;
+}
 
-        <section className="auth-panel">
-          {children}
-        </section>
+.ring-1 {
+  opacity: 0.35;
+}
 
-        {footer ? <footer className="auth-footer">{footer}</footer> : null}
-      </div>
-    </main>
-  )
+.ring-2 {
+  opacity: 0.55;
+}
+
+.ring-3 {
+  opacity: 0.75;
+}
+
+.auth-shell-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-eyebrow {
+  color: var(--accent-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.auth-title {
+  font-size: clamp(28px, 7vw, 38px);
+  line-height: 1.1;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.auth-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+}
+
+.auth-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 18px;
+}
+
+.auth-footer a {
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .auth-shell {
+    padding: 24px 16px;
+  }
+
+  .auth-panel {
+    padding: 20px;
+  }
 }
