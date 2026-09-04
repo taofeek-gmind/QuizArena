@@ -1,10 +1,27 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
+import { AuthProvider, useAuth } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
-import PublicOnlyRoute from './components/PublicOnlyRoute'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Dashboard from './pages/Dashboard'
+
+function PublicOnlyRoute({ children }) {
+  const { session, loading } = useAuth()
+
+  if (loading) {
+    return (
+      <div className="screen-center">
+        <div className="spinner" aria-label="Loading" />
+      </div>
+    )
+  }
+
+  if (session) {
+    return <Navigate to="/dashboard" replace />
+  }
+
+  return children
+}
 
 export default function App() {
   return (
@@ -20,6 +37,7 @@ export default function App() {
             </PublicOnlyRoute>
           }
         />
+
         <Route
           path="/signup"
           element={
