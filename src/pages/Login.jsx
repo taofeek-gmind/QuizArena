@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import AuthShell from '../components/AuthShell'
+import AuthShell from '../Components/AuthShell'
 import FormField from '../components/FormField'
 import { useAuth } from '../context/AuthContext'
 import '../components/forms.css'
